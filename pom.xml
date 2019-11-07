@@ -78,7 +78,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>docker_eureka</finalName>
+        <finalName>api-auth</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

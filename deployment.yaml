@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-auth
+  namespace: sba
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-auth
+  template:
+    metadata:
+      labels:
+        app: api-auth
+    spec:
+      containers:
+        - name: api-auth
+          image: registry.cn-beijing.aliyuncs.com/damondocker/api-auth:{version}
+          ports:
+            - name: http-port
+              containerPort: 8763
+          env:
+            - name: spring_profiles_active
+              value: k8s
+      imagePullSecrets:
+        - name: sba
